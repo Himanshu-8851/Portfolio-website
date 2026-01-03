@@ -24,8 +24,8 @@ const Contact = () => {
     setStatus({ type: 'loading', msg: 'Connecting to server...' });
 
     try {
-      // Updated to Port 5001 and used 127.0.0.1 for maximum stability
-      const response = await fetch('http://127.0.0.1:5001/api/contact', {
+      // UPDATED: Now pointing to your LIVE Render Backend URL
+      const response = await fetch('https://portfolio-website-whdb.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,8 +44,8 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('Detailed Debugging Error:', error);
-      // This triggers if the backend is not running or the port is wrong
-      setStatus({ type: 'error', msg: 'Server is offline. ⚠️ Please check if Backend is running on Port 5001.' });
+      // This triggers if the Render server is sleeping or there is a network issue
+      setStatus({ type: 'error', msg: 'Could not connect to the server. ⚠️ Please try again in a moment.' });
     }
   };
 
