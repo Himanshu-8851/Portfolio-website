@@ -11,7 +11,7 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: { 
-        staggerChildren: 0.05, // Speed of typing (Lower = Faster)
+        staggerChildren: 0.05, // Speed of typing
         delayChildren: 0.5 
       },
     },
@@ -28,13 +28,13 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="flex flex-col items-center justify-center min-h-screen text-center px-6 bg-gray-900">
+    <section id="home" className="flex flex-col items-center justify-center min-h-screen text-center px-6 bg-gray-900 overflow-hidden">
       
       <h2 className="text-blue-500 text-lg md:text-xl font-mono mb-4 tracking-widest">
         Hi, my name is
       </h2>
 
-      {/* 1. Name: Character by Character */}
+      {/* 1. Name: Character by Character with Space Handling */}
       <motion.h1 
         variants={containerVariants}
         initial="hidden"
@@ -43,12 +43,13 @@ const Hero = () => {
       >
         {name.split("").map((char, index) => (
           <motion.span key={index} variants={letterVariants}>
-            {char}
+            {/* If char is a space, use non-breaking space code */}
+            {char === " " ? "\u00A0" : char}
           </motion.span>
         ))}
       </motion.h1>
 
-      {/* 2. Bio: Character by Character */}
+      {/* 2. Bio: Character by Character with Space Handling */}
       <motion.p 
         variants={containerVariants}
         initial="hidden"
@@ -57,23 +58,24 @@ const Hero = () => {
       >
         {bio.split("").map((char, index) => (
           <motion.span key={index} variants={letterVariants}>
-            {char}
+            {char === " " ? "\u00A0" : char}
           </motion.span>
         ))}
         {/* Blinking Cursor Effect */}
         <motion.span
           animate={{ opacity: [0, 1, 0] }}
           transition={{ repeat: Infinity, duration: 0.8 }}
-          className="inline-block w-2 h-6 bg-blue-500 ml-1 ml-1 align-middle"
+          className="inline-block w-2 h-6 bg-blue-500 ml-1 align-middle"
         />
       </motion.p>
 
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 4 }} // Buttons appear after typing is done
+        transition={{ delay: 4 }} 
+        className="flex gap-4"
       >
-        <a href="#projects" className="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all">
+        <a href="#projects" className="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-900/20">
           View My Projects
         </a>
       </motion.div>
