@@ -7,7 +7,7 @@ const Footer = () => {
         
         {/* 1. Brand/Logo */}
         <div className="text-2xl font-bold text-blue-500 tracking-tighter mb-4">
-          HIMANSHU<span className="text-white">.</span>
+          @2026.All Rights Reserved.<span className="text-white">.</span>
         </div>
 
         {/* 2. Navigation Shortcuts */}
