@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
-  const name = "Himanshu Bansal.";
-  const bio = "Full Stack Web Developer specialized in MERN Stack.";
+  const name = "Himanshu Bansal";
+  const bio = "Full Stack Web Developer";
 
   // Animation for the parent container
   const containerVariants = {
