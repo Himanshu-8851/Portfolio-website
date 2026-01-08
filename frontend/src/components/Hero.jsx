@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
-  const name = "Himanshu Bansal";
-  const bio = "Full Stack Web Developer";
+  const name = "Portfolio Website";
+  const bio = "Welcome to my portfolio website! Here you'll find a showcase of my projects, skills, and experience as a developer!";
 
   // Animation for the parent container
   const containerVariants = {
@@ -14,7 +14,7 @@ const Hero = () => {
         staggerChildren: 0.05, // Speed of typing
         delayChildren: 0.5 
       },
-    },
+    }
   };
 
   // Animation for each individual character
@@ -31,7 +31,7 @@ const Hero = () => {
     <section id="home" className="flex flex-col items-center justify-center min-h-screen text-center px-6 bg-gray-900 overflow-hidden">
       
       <h2 className="text-blue-500 text-lg md:text-xl font-mono mb-4 tracking-widest">
-        Hi, my name is
+        Hi, I'm 
       </h2>
 
       {/* 1. Name: Character by Character with Space Handling */}
